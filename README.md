@@ -89,12 +89,12 @@ sequenceDiagram
     bitcoin-p2p-handshake->>Peer: Version Message
     Peer->>bitcoin-p2p-handshake: Version Message
     bitcoin-p2p-handshake->>Peer: Verack Message
-    Peer->>bitcoin-p2p-handshake: Verack Message (optional)
+    Peer->>bitcoin-p2p-handshake: Verack Message (or empty buffer)
 ```
 
 
 
-Note: Since a Verack Message doesn't get returned in most of my trials, I have assumed that it is optional. 
+Note: In some of my trials, an empty buffer gets received instead of a Verack Message. Therefore, I have assumed that the Verack Message is optional and an empty buffer can be received instead. 
 
 ### Potential Improvements
 

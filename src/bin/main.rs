@@ -161,6 +161,7 @@ async fn exchange_verack_message(chain: Chain, tcp_stream: &mut TcpStream) -> an
     let mut buffer_reader = BufReader::new(tcp_stream);
     let mut bytes = buffer_reader.fill_buf().await?;
     let bytes_len = bytes.len();
+    // Note: In some of my trials, an empty buffer gets received instead of a Verack Message. Therefore, I have assumed that the Verack Message is optional and an empty buffer can be received instead.
     if bytes_len == 0 {
         tracing::info!("VERACK message was not exchanged by peer");
         return Ok(());
