@@ -1,0 +1,24 @@
+[package]
+name = "bitcoin-p2p"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "bitcoin-p2p-handshake"
+path = "src/bin/main.rs"
+
+[dependencies]
+anyhow = "1.0.80"
+bitflags = "2.4.2"
+byteorder = "1.5.0"
+futures = "0.3.30"
+sha2 = "0.10.8"
+rand = "0.8.5"
+thiserror = "1.0.58"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+clap = {version = "4.5.2", features = ["derive"] }
+tokio = { version = "1.36.0", features = ["full"] }
+
+[dev-dependencies]
+hex = "0.4.3"
